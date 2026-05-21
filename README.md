@@ -37,6 +37,7 @@ The fields in the table below can be used in these parts of STAC documents:
 | product:timeliness          | string | The average expected timeliness of the product as an [ISO 8601 Duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). |
 | product:timeliness_category | string | A proprietary category identifier for the timeliness of the product. |
 | product:acquisition_type    | string | The acquisition type of the product.                         |
+| product:status              | string | The lifecycle/status of the product.                         |
 
 > \[!IMPORTANT]  
 > `product:timeliness` is REQUIRED if `product:timeliness_category` is provided.
@@ -72,6 +73,23 @@ or `other` (not `nominal`, not `calibration`).
 
 [Sentinel-1](https://sentinels.copernicus.eu/web/sentinel/-/copernicus-sentinel-1-calibration-campaign-on-going-in-europe) provides few acquisitions
 in given dates and orbits that were acquired in a different mode. Those products would have `calibration`.
+
+#### product:status
+
+Refers to product status.
+It is similar to the `status` field (of kind `StatusValue`) from the
+[OGC® Earth Observation Metadata profile of Observations & Measurements , Table 5](https://docs.ogc.org/is/10-157r4/10-157r4.html#24):
+
+Allowed values are:
+
+- `archived`
+- `acquired`
+- `cancelled`
+- `failed`
+- `planned`
+- `potential`
+- `rejected`
+- `qualitydegraded`
 
 #### Timeliness
 

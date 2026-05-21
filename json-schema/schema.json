@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://stac-extensions.github.io/product/v1.0.0/schema.json",
+  "$id": "https://stac-extensions.github.io/product/v1.1.0/schema.json",
   "title": "Product Extension",
   "description": "STAC Product Extension for STAC Items and STAC Collections.",
   "type": "object",
@@ -11,7 +11,7 @@
     "stac_extensions": {
       "type": "array",
       "contains": {
-        "const": "https://stac-extensions.github.io/product/v1.0.0/schema.json"
+        "const": "https://stac-extensions.github.io/product/v1.1.0/schema.json"
       }
     }
   },
@@ -119,6 +119,20 @@
                   }
                 }
               ]
+            },
+            "product:status": {
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/json_schema"
+                },
+                {
+                  "type": "array",
+                  "uniqueItems": true,
+                  "items": {
+                    "$ref": "#/definitions/product:status"
+                  }
+                }
+              ]
             }
           }
         }
@@ -150,6 +164,9 @@
         },
         "product:acquisition_type": {
           "$ref": "#/definitions/product:acquisition_type"
+        },
+        "product:status": {
+          "$ref": "#/definitions/product:status"
         }
       },
       "patternProperties": {
@@ -175,6 +192,19 @@
         "nominal",
         "calibration",
         "other"
+      ]
+    },
+    "product:status": {
+      "type": "string",
+      "enum": [
+        "archived",
+        "acquired",
+        "cancelled",
+        "failed",
+        "planned",
+        "potential",
+        "rejected",
+        "qualitydegraded"
       ]
     },
     "json_schema": {
