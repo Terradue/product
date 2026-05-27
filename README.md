@@ -124,7 +124,8 @@ Allowed values are:
 
 A processing order may therefore complete successfully while the generated product is later considered unsuitable for downstream use.
 
-For example, in a processing chain, a derived product may be successfully generated and catalogued, but later excluded from downstream processing after quality control validation:
+For example, in a processing chain, a derived product may be successfully generated and catalogued,
+ but later excluded from downstream processing after quality control validation:
 
 ```json
 {
