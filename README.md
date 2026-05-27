@@ -115,6 +115,25 @@ Allowed values are:
 - `rejected`
 - `qualitydegraded`
 
+##### Relationship with the Order Extension
+
+`product:status` and `order:status` may appear similar but they describe different entities and lifecycle concerns.
+
+- `order:status` describes the lifecycle or execution state of a request, order, or processing transaction.
+- `product:status` describes the disposition or usability status of the resulting catalogued product artifact itself.
+
+A processing order may therefore complete successfully while the generated product is later considered unsuitable for downstream use.
+
+For example, in a processing chain, a derived product may be successfully generated and catalogued, but later excluded from downstream processing after quality control validation:
+
+```json
+{
+  "properties": {
+    "product:status": "rejected"
+  }
+}
+```
+
 ## Contributing
 
 All contributions are subject to the
